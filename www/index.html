@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" >
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <div class="main clearfix">
+        <div class="chat fl">
+            <!-- 聊天窗口 -->
+            <div class="record">
+                <div class="list clearfix"></div>
+            </div>
+
+            <!-- 小工具：文字颜色，文字大小，发送图片，震动 -->
+            <div class="manager clearfix">
+                <div class="font cc">
+                    <span>A</span>
+                    <div class="fontlist clearfix">
+                        <div class="fontcolor cc">
+                            <input type="color" id="fontcolor">
+                        </div>
+                        <div class="fontsize cc">
+                            <select id="fontsize">
+                                <option value="12px">12px</option>
+                                <option value="14px" selected="true">14px</option>
+                                <option value="16px">16px</option>
+                                <option value="18px">18px</option>
+                                <option value="20px">20px</option>
+                                <option value="22px">22px</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="imgup cc">
+                    <input id="fileupload" type="file" name="mypic">
+                </div>
+
+                <div class="shk cc">
+                    <span title="发送震动">震</span>
+                </div>
+            </div>
+
+            <!-- 发送消息 -->
+            <div class="send">
+                <textarea name="" id="msg"></textarea>
+                <input type="button" class="btn" id="send" value="发送">
+            </div>
+        </div>
+
+        <!-- 在线用户列表 -->
+        <div class="user fr">
+            <div>在线人数：<span id="num">0</span></div>
+            <div class="list">
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 登录弹窗 -->
+    <div class="layer"></div>
+    <div class="content" id="content">
+        <div class="info">
+            connecting server...
+        </div>
+        <div class="nickform" >
+            <div>
+                <p>请选择您的头像</p>
+                <ul class="portrait clearfix"></ul>
+            </div>
+            <form action="" onSubmit="return Chat.login(); return false;">
+                <div>
+                    <p id="tips">请输入你的昵称：</p>
+                    <p>
+                        <input type="text" autofocus="true" id="nickname">
+                        <input type="submit"  id="nickok" value="OK">
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="./js/wchat.js"></script>
+</html>
